@@ -1,0 +1,53 @@
+void setup(){
+   Serial.begin(9600);
+    pinMode(2,OUTPUT);
+    pinMode(3,OUTPUT);
+    pinMode(4,OUTPUT);
+}
+char c;
+String voice;
+
+void loop(){
+  if (Serial.available()>0)
+  { voice="";
+  delay(2);
+  voice=Serial.readString(); 
+  Serial.println(voice);
+  }
+    
+        if(voice=="yellow on"){
+            digitalWrite(2,HIGH);
+            
+        }else if(voice=="yellow off"){
+            digitalWrite(2,LOW);
+           
+        }
+        if(voice=="green on"){
+            digitalWrite(3,HIGH);
+          
+        }
+        if(voice=="green off"){
+            digitalWrite(3,LOW);
+           
+        }
+        if(voice=="blue on"){
+            digitalWrite(4,HIGH);
+            
+        }
+        if(voice=="blue off"){
+            digitalWrite(4,LOW);
+            
+        }
+        if(voice=="all on"){
+            digitalWrite(2,HIGH);
+            digitalWrite(3,HIGH);
+            digitalWrite(4,HIGH);
+           
+        }
+        if(voice=="all close"){
+            digitalWrite(2,LOW);
+            digitalWrite(3,LOW);
+            digitalWrite(4,LOW);
+            
+        }
+    }
